@@ -1,0 +1,13 @@
+S  --> NP  VP;		¾ä×Ó
+S  --> VP;		
+S  --> NP;
+NP --> noun;		Ãû´Ê¶ÌÓï
+NP --> adj  noun;
+NP --> DJ;
+NP --> DJ  NP;
+DJ --> VP  de;		"µÄ"×Ö½á¹¹
+DJ --> NP de;
+VP --> VC  NP;		¶¯´Ê¶ÌÓï
+VC --> vt  adj;		¶¯´Ê²¹¸½½á¹¹
+VC --> VC  utl;
+VC --> vt;

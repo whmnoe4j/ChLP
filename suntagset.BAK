@@ -1,0 +1,114 @@
+; 孙宏林标记集，共112个标记
+;旧标记 新标记 注释
+@;1     @     加在无标点句子的末尾            
+#a;2     ag0   A一般       
+ab;3    agb   A带宾语     
+as;4    ags   A作主宾     
+ax;5    agx   A作NP中心   
+az;6    agz   A作状语     
+#b;7     ab    区别词      
+c;8     c     连词        
+db;9    db    否定前副词  
+dd;10    dd    程度副词    
+#dr;11    dr    一般副词    
+e;12     e     叹词        
+f;13     nf    方位词      
+id;14    id    副词性成语  
+in;15    in    体词性成语  
+iv;16    iv    谓词性成语  
+kh;17    kh    名词前缀    
+kn;18    kn    名词后缀    
+kp;19    kp    可能中缀    
+kv;20    kv    动词后缀    
+l;21     l     插入语      
+mab;22   mab   后助数词    
+maf;23   maf   前助数词    
+mam;24   mam   中助数词    
+mg;25    mgg   概数词      
+mh;26    mgh   数词"半"    
+mm;27    mgm   数量词      
+mo;28    mgo   数词"零"    
+mw;29    mgw   位数词      
+mx;30    mgx   系数词      
+nf;31    npx   姓氏        
+#ng;32    ng0   普通名词    
+ngl;33   ngl   离合名词    
+npf;34   npm   人名        
+npr;35   npr   其它专名    
+nps;36   nps   地点专名    
+npu;37   npu   机构名      
+o;38     o     象声词      
+pba;39   pba   词介把(将)  
+pbei;40  pbe   被(让,叫)   
+pg;41    pg    普通介词    
+pzai;42  pza   介词"在"    
+qnc;43   qnc   不定量词    
+qng;44   qng   名量词"个"  
+qnk;45   qnk   种类量词    
+qnm;46   qnm   度量词      
+qns;47   qns   个体量词    
+qnt;48   qnt   临时名量词  
+qnu;49   qnu   集合量词    
+qt;50    qt    时量词      
+qv;51    qv0   动量词      
+qvt;52   qvt   临时动量词  
+ra;53    ra    代词作定语  
+rd;54    rd    代词作状语  
+rp;55    rp    代词作谓补  
+rs;56    rs    代词作主宾  
+#s;57     ns    处所词      
+#t;58     nt    时间词      
+ur;59    ur    其它助词    
+usde;60  usd   助词"的"    
+usdf;61  usf   助词"得"    
+usdi;62  usi   助词"地"    
+ussi;63  usy   助词"似的"  
+ussu;64  uss   助词"所"    
+uszh;65  usz   助词"之"    
+utg;66   utg   助词"过"    
+utl;67   utl   助词"了"    
+utz;68   utz   助词"着"    
+va;69    va    助动词      
+vc;70    vwc   V作补语     
+vf;71    vf    形式动词    
+#vg;72    vw0   V不带宾     
+vga;73   vwa   V带形宾     
+vgb;74   vtb   V作宾       
+vgd;75   vwd   V带双宾     
+vgj;76   vwj   V带兼语宾   
+#vgn;77   vwn   V带体宾     
+vgp;78   vtp   V作NP偏     
+vgs;79   vws   V带小句宾   
+vgv;80   vwv   V带动宾     
+vgx;81   vtx   V作NP正     
+vgz;82   vtz   V作主       
+vi;83    vi    系动词      
+vv;84    vv    "来去"+VP   
+xch;85   fhz   非汉字      
+xfl;86   gsh   数学公式    
+y;87     y     语气词      
+#z;88     az    状态词      
+、;89    wd3               
+。;90    wd2               
+·;91    wdc               
+——;92  wd9               
+～;93    wdb               
+……;94  wd8               
+‘;95   wbb               
+’;96    wbc               
+“;97    wb3               
+”;98    wb4               
+〔;99    wb5               
+〕;100    wb6               
+〈;101    wb9               
+〉;102    wba               
+《;103    wb7               
+》;104    wb8               
+！;105    wd6               
+（;106    wb1               
+）;107    wb2               
+，;108    wd1               
+／;109    wda               
+：;110    wd5               
+；;111    wd4               
+？;112    wd7               

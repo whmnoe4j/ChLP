@@ -1,0 +1,13 @@
+S  --> NP  VP  		0.7;		¾ä×Ó
+S  --> VP      		0.2;		
+S  --> NP 0.1;
+NP --> noun  0.3;		Ãû´Ê¶ÌÓï
+NP --> adj  noun  0.2;
+NP --> DJ  O.2;
+NP --> DJ  NP  0.3;
+DJ --> VP  de  0.4;		"µÄ"×Ö½á¹¹
+DJ --> NP de  0.6;
+VP --> VC  NP  1.0;		¶¯´Ê¶ÌÓï
+VC --> vt  adj  0.3;		¶¯´Ê²¹¸½½á¹¹
+VC --> VC  utl  0.5;
+VC --> vt  0.2;

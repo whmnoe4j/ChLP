@@ -1,0 +1,21 @@
+局部分析9个；
+0.08066: S(NP(noun(孩子))+VP(VC(vt(喜欢))+NP(noun(狗))))
+
+局部分析6个；
+0.14945: S(VP(VC(vt(穿))+NP(noun(衣服))))
+
+局部分析12个；
+0.18681: S(VP(VC(vt(穿)+adj(好))+NP(noun(衣服))))
+
+0.18681: S(VP(VC(vt(穿))+NP(adj(好)+noun(衣服))))
+
+局部分析27个；
+0.00000: S(NP(DJ(VP(VC(VC(vt(咬)+adj(死))+utl(了))+NP(noun(猎人)))+de(的))+NP(noun(狗))))
+
+0.00886: S(VP(VC(VC(vt(咬)+adj(死))+utl(了))+NP(DJ(NP(noun(猎人))+de(的))+NP(noun(狗)))))
+
+局部分析32个；
+0.00478: S(NP(noun(老虎))+VP(VC(VC(vt(咬)+adj(死))+utl(了))+NP(DJ(NP(noun(猎人))+de(的))+NP(noun(狗)))))
+
+5个句子，总概率0.61738，平均每句概率0.12348
+

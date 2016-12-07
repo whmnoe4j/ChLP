@@ -1,0 +1,23 @@
+查找汉字串：“把”
+d:\chen\corpus\tagged\seg1_2\kj0002.hv:
+例0001：     决心/Hvgv 把/pba 部队/ng 锤炼/vgn 成/vc 真正/b 的/usde “/“ 全天候/ng ”/” 。/。 
+
+例0002：     然后/dr 把/pba 一/mx 个/qng 个/qng 飞行/vg 员/kn 带/Hvg 到/pg 空中/s 去/vv 苦练/vg ，/， 
+
+
+d:\chen\corpus\tagged\seg1_2\kj0003.hv:
+例0003：     切实/az 把/pba 优/a 的/usde 、/、 强/a 的/usde 项目/ng 扶/Hvg 上去/vc ，/， 
+
+例0004：     把/pba 生产/vg 中/f 的/usde 技术/ng 难题/ng 作为/Hvgn 科技/ng 攻关/vgp 课题/ng ，/， 
+
+
+d:\chen\corpus\tagged\seg1_2\kj0004.hv:
+例0005：     于是/c 高等/b 学校/ng 自己/rs 就/dr 把/pba 这/ra 些/qnc 科技/ng 成果/ng 产业/ng 化/Hkv ，/， 
+
+
+d:\chen\corpus\tagged\seg1_2\kj0001.hv:
+例0006：     使得/Hvgj 我们/rs 能够/va 把/pba 经济/ng 建设/vgx 和/c 社会/ng 发展/vgx 切实/az 转移/vg 到/pg 依靠/vgn 科技/ng 进步/vgx 和/c 提高/vgn 劳动/vg 者/kn 素质/ng 的/usde 轨道/ng 上/f 来/vc ，/， 
+
+例0007：     有/vgn 意识/ng 地/usdi 把/pba 中青年/ng 科学/ng 家/kn 放/Hvg 到/pg 重要/a 岗位/ng 上/f 去/vv 培养/vg 锻炼/vg ，/， 
+
+
