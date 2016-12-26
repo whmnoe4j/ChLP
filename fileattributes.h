@@ -6,12 +6,23 @@
 #endif // _MSC_VER > 1000
 // FileAttributes.h : header file
 //
+
 #define HZ_NUM 6768
-#define HZ_ID(c1,c2)	((c1)-176)*94+((c2)-161)
-//计算汉字下标的宏
+#define HZ_ID(c1,c2)	((c1)-176)*94+((c2)-161)//计算汉字下标的宏
+#define e_puncture1 ".!?:;"
+#define e_puncture2 "')\042"
+#define c_puncture1 "。 ！ ？ ： ； …"
+#define c_puncture2 "” ’ ）"
+
 void LoadHZFreq();
 void StoreHZFreq();
 void HZPairInFile(CString FileName);
+int FindOneHZ(const char*str,const char*hz);
+CString wordType(CString&w);
+int GetSentence(CString&s);
+CString ChangeExt(CString oldName,CString newExt);
+void CutSentence(CString FileName);
+void OnSentenceInFiles();
 /////////////////////////////////////////////////////////////////////////////
 // CFileAttributes dialog
 

@@ -66,8 +66,8 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON    DISCARDABLE     "res\\现代汉语自动分析.ico"
-IDR_MYTYPE              ICON    DISCARDABLE     "res\\现代汉语自动分析Doc.ico"
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\ChLP.ico"
+IDR_MYTYPE              ICON    DISCARDABLE     "res\\ChLPDoc.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //

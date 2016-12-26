@@ -358,3 +358,105 @@ void OnSeekHz()
 		msg="找不到，或者输入错误";
 	AfxMessageBox(msg);
 }
+int FindOneHZ(const char*str,const char*hz)
+{
+	char*p=(char*)str;
+	while(*p!='\0'){
+		if(*p>0)p++;
+		else if(*p==*hz&&*(p+1)==*(hz+1))return (p-str);
+		else p=p+2;
+	}
+	return -1;
+}
+CString wordType(CString &w)
+{
+	int n=w.GetLength();
+	if(n==4&&w.Left(2)==w.Right(2))return "AA";
+	else if(n==6&&w.Left(2)==w.Right(2)){
+		if(w.Mid(2,2)=="一")return "A一A";
+		else if(w.Mid(2,2)="了")return "A了A";
+		else if(w.Mid(2,2)="不")return "A不A";
+		else return"";
+	}
+	else if(n==6&&w.Left(2)!=w.Mid(2,2)&&w.Mid(2,2)==w.Right(2))return"ABB";
+	else if(n==8&&w.Left(2)==w.Mid(2,2)&&w.Mid(4,2)==w.Right(2))return"AABB";
+	else if(n==8&&w.Left(2)==w.Mid(4,2)&&w.Mid(2,2)==w.Right(2))return"ABAB";
+	else return"";
+}
+int GetSentence(CString&s)
+{
+	char w[3];
+	int i=0,n=s.GetLength();
+	BOOL foundSentence=FALSE;
+	while(i<n){
+		if(s[i]>0){
+			if(strchr(e_puncture1,s[i])){
+				foundSentence=TRUE;
+				i++;break;
+			}
+			else i++;
+		}
+		else{
+			w[0]=s[i];w[1]=s[i+1];w[2]=0;
+			if(strstr(c_puncture1,w)){
+				foundSentence=TRUE;
+				i+=2;break;
+			}
+			else i+=2;
+		}
+	}
+	if(!foundSentence)
+		return 0;
+	else{
+		while(i<n){
+			if(s[i]>0){
+				if(strchr(e_puncture1,s[i])||strchr(e_puncture2,s[i]))i++;
+				else return i;
+			}
+			else{
+				w[0]=s[i];w[1]=s[i+1];w[2]=0;
+				if(strstr(c_puncture1,w)||strstr(c_puncture2,w))i+=2;
+				else return i;
+			}
+		}
+		return n;
+	}
+}
+CString ChangeExt(CString oldName,CString newExt)
+{
+	int i=oldName.ReverseFind('.');
+	int j=oldName.ReverseFind('\\');
+	if(i>j)return oldName.Left(i+1)+newExt;
+	else return oldName+"."+newExt;
+}
+void CutSentence(CString FileName)
+{
+	FILE*in,*out;
+	in=fopen((const char*)FileName,"rt");
+	if(in==NULL){AfxMessageBox("无法打开文件");return;}
+	FileName=ChangeExt(FileName,"sen");
+	out=fopen((const char*)FileName,"wt");
+	if(out==NULL){AfxMessageBox("无法创建文件");fclose(in);return;}
+	CStdioFile inFile(in),outFile(out);
+	char s[2048];
+	CString line;int i,n;
+	while(inFile.ReadString(s,2048)){
+		line=s;
+		n=line.GetLength();
+		while((i=GetSentence(line))>0){
+			outFile.WriteString(line.Left(i)+'\n');
+			line=line.Mid(i);
+		}
+		if(!line.IsEmpty()){
+			if(n==line.GetLength()&&n<60)
+				outFile.WriteString(line+'\n');
+			else outFile.WriteString(line);
+		}
+	}
+	inFile.Close();
+	outFile.Close();
+}
+void OnSentenceInFiles()
+{
+	ProcessFiles("*","*.*",CutSentence);
+}

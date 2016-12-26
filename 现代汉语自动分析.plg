@@ -6,11 +6,48 @@
 --------------------Configuration: 现代汉语自动分析 - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo".\Debug/现代汉语自动分析.res" /d "_DEBUG" /d "_AFXDLL" "E:\ChLP\现代汉语自动分析.rc"" 
+Creating temporary file "C:\Users\lenovo\AppData\Local\Temp\RSPF35C.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp".\Debug/现代汉语自动分析.pch" /Yu"stdafx.h" /Fo".\Debug/" /Fd".\Debug/" /FD /c 
+"E:\ChLP\ChildFrm.cpp"
+"E:\ChLP\MainFrm.cpp"
+"E:\ChLP\myResourceClass.cpp"
+"E:\ChLP\parsing.cpp"
+"E:\ChLP\retrieval.cpp"
+"E:\ChLP\taggingPOS.cpp"
+"E:\ChLP\WordTagSet.cpp"
+"E:\ChLP\现代汉语自动分析.cpp"
+"E:\ChLP\现代汉语自动分析Doc.cpp"
+"E:\ChLP\现代汉语自动分析View.cpp"
+]
+Creating command line "cl.exe @C:\Users\lenovo\AppData\Local\Temp\RSPF35C.tmp" 
+Creating temporary file "C:\Users\lenovo\AppData\Local\Temp\RSPF35D.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:".\Debug/现代汉语自动分析.pdb" /debug /machine:I386 /out:".\Debug/现代汉语自动分析.exe" 
+.\Debug\ChildFrm.obj
+.\Debug\MainFrm.obj
+.\Debug\myResourceClass.obj
+.\Debug\parsing.obj
+.\Debug\retrieval.obj
+.\Debug\StdAfx.obj
+.\Debug\taggingPOS.obj
+.\Debug\WordTagSet.obj
+".\Debug\现代汉语自动分析.obj"
+".\Debug\现代汉语自动分析Doc.obj"
+".\Debug\现代汉语自动分析View.obj"
+".\Debug\现代汉语自动分析.res"
+]
+Creating command line "link.exe @C:\Users\lenovo\AppData\Local\Temp\RSPF35D.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+E:\ChLP\现代汉语自动分析.rc(578) : fatal error RC1015: cannot open include file 'res\现代汉语自动分析.rc2'.
+Error executing rc.exe.
 
 
 
 <h3>Results</h3>
-现代汉语自动分析.exe - 0 error(s), 0 warning(s)
+现代汉语自动分析.exe - 1 error(s), 0 warning(s)
 </pre>
 </body>
 </html>
