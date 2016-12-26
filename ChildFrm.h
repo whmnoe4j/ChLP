@@ -2,6 +2,14 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 
+#if !defined(AFX_CHILDFRM_H__E7D3445D_51F9_4F3A_85EF_A8A1A88AFE4B__INCLUDED_)
+#define AFX_CHILDFRM_H__E7D3445D_51F9_4F3A_85EF_A8A1A88AFE4B__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
+
+
 class CChildFrame : public CMDIChildWnd
 {
 	DECLARE_DYNCREATE(CChildFrame)
@@ -38,3 +46,8 @@ protected:
 };
 
 /////////////////////////////////////////////////////////////////////////////
+
+//{{AFX_INSERT_LOCATION}}
+// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+
+#endif // !defined(AFX_CHILDFRM_H__E7D3445D_51F9_4F3A_85EF_A8A1A88AFE4B__INCLUDED_)

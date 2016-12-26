@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "现代汉语自动分析.h"
+#include "ChLP.h"
 
 #include "ChildFrm.h"
 
@@ -42,8 +42,13 @@ BOOL CChildFrame::PreCreateWindow(CREATESTRUCT& cs)
 	// TODO: Modify the Window class or styles here by modifying
 	//  the CREATESTRUCT cs
 
-	return CMDIChildWnd::PreCreateWindow(cs);
+	if( !CMDIChildWnd::PreCreateWindow(cs) )
+		return FALSE;
+
+	return TRUE;
 }
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 // CChildFrame diagnostics

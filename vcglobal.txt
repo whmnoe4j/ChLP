@@ -1,0 +1,57 @@
+有关VC++6.0中全局变量的问题:为什么在Global.h中不能够再加全局变量了呢
+我的程序为什么在Global.h中不能够再加全局变量了呢？
+以前是可以的，但是不知什么时候开始，加了全局变量，在编译链接时就会出现错误，意思是某个类中已经重复定义了，但是那个类中是没有这个变量的。
+有哪位知道为什么吗? 
+------Solutions------
+global.h被多次引用了呗
+
+办法是加上头文件定义保护，如下：
+#ifndef __GLOBAL_H__
+#define __GLOBAL_H__
+
+...// 原有代码
+
+#endif
+
+
+
+
+------Solutions------
+我一般加全局变量都用两个文件
+global.h和global.cpp
+
+在cpp文件中定义变量，如：
+int g_a = 0;
+int g_b = 0;
+
+在.h文件中声明：
+extern int g_a;
+extern int g_b;
+
+然后使用的地方包含.h文件就可以了，当然，防止重复包含的宏定义是一定加上的 
+------Solutions------
+全局变量设置总会报这样的错，主要是设全局变量方法有误，
+
+在不同文件里引用全局变量 应该加extern int a;
+
+然后在CPP里可以使用了。
+
+一般建立grobal.h 就有一劳永逸的方法，
+
+在.h中 extern int a，然后在grobal.cpp中 定义 int a;
+
+这样其他文件引用grobal.h时就可以使用该全局变量了 
+------Solutions------
+在cpp文件中定义变量，如：
+int g_a = 0;
+int g_b = 0;
+
+在.h文件中声明：
+extern int g_a;
+extern int g_b;
+
+我也这么做 
+------Solutions------
+在cpp中定义 
+------Solutions------
+谢谢大家，又学习了很多！
