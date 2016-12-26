@@ -18,13 +18,13 @@ Class6=CFileAttributes
 Class7=CMainFrame
 
 ResourceCount=5
-Resource1=IDR_MAINFRAME
-Resource2=IDD_FILE_ATTRIBUTES
-Resource3=IDD_ABOUTBOX
-Resource4=IDD_GET_DATA
+Resource1=IDR_CHLPTYPE
+Resource2=IDR_MAINFRAME
+Resource3=IDD_FILE_ATTRIBUTES
+Resource4=IDD_ABOUTBOX
 Class8=CGetDataDlg
 Class9=HZPair
-Resource5=IDR_CHLPTYPE
+Resource5=IDD_GET_DATA
 
 [CLS:CChildFrame]
 Type=0
