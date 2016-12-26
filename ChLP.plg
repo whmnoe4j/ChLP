@@ -6,37 +6,33 @@
 --------------------Configuration: ChLP - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\lenovo\AppData\Local\Temp\RSPFC43.tmp" with contents
+Creating temporary file "C:\Users\ADMINI~1.SC-\AppData\Local\Temp\RSPB90.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ChLP.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"E:\ChLP\ChLPDoc.cpp"
-"E:\ChLP\FileAttributes.cpp"
-"E:\ChLP\MainFrm.cpp"
+"E:\ChLP\Dictionary.cpp"
 ]
-Creating command line "cl.exe @C:\Users\lenovo\AppData\Local\Temp\RSPFC43.tmp" 
-Creating temporary file "C:\Users\lenovo\AppData\Local\Temp\RSPFC54.tmp" with contents
+Creating command line "cl.exe @"C:\Users\ADMINI~1.SC-\AppData\Local\Temp\RSPB90.tmp"" 
+Creating temporary file "C:\Users\ADMINI~1.SC-\AppData\Local\Temp\RSPB91.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ChLP.pdb" /debug /machine:I386 /out:"Debug/ChLP.exe" /pdbtype:sept 
 .\Debug\ChildFrm.obj
 .\Debug\ChLP.obj
 .\Debug\ChLPDoc.obj
 .\Debug\ChLPView.obj
+.\Debug\Dictionary.obj
 .\Debug\FileAttributes.obj
 .\Debug\HZPair.obj
 .\Debug\MainFrm.obj
 .\Debug\SortedPairs.obj
 .\Debug\StdAfx.obj
+.\Debug\TagFreq.obj
 .\Debug\ChLP.res
 ]
-Creating command line "link.exe @C:\Users\lenovo\AppData\Local\Temp\RSPFC54.tmp"
+Creating command line "link.exe @"C:\Users\ADMINI~1.SC-\AppData\Local\Temp\RSPB91.tmp""
 <h3>Output Window</h3>
 Compiling...
-ChLPDoc.cpp
-Generating Code...
-Compiling...
-FileAttributes.cpp
-MainFrm.cpp
-Generating Code...
+Dictionary.cpp
+E:\ChLP\Dictionary.cpp(86) : warning C4101: 'p' : unreferenced local variable
 Linking...
 
 
