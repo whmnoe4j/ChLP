@@ -110,10 +110,6 @@ SOURCE=.\ChLPView.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\Dictionary.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\FileAttributes.cpp
 # End Source File
 # Begin Source File
@@ -132,10 +128,6 @@ SOURCE=.\SortedPairs.cpp
 
 SOURCE=.\StdAfx.cpp
 # ADD CPP /Yc"stdafx.h"
-# End Source File
-# Begin Source File
-
-SOURCE=.\TagFreq.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -156,10 +148,6 @@ SOURCE=.\ChLPDoc.h
 # Begin Source File
 
 SOURCE=.\ChLPView.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Dictionary.h
 # End Source File
 # Begin Source File
 
@@ -184,10 +172,6 @@ SOURCE=.\SortedPairs.h
 # Begin Source File
 
 SOURCE=.\StdAfx.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\TagFreq.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"
