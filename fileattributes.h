@@ -13,6 +13,8 @@
 #define e_puncture2 "')\042"
 #define c_puncture1 "¡£ £¡ £¿ £º £» ¡­"
 #define c_puncture2 "¡± ¡¯ £©"
+#define MaxWordLength 8
+#define Separator " "
 
 void LoadHZFreq();
 void StoreHZFreq();
@@ -23,6 +25,10 @@ int GetSentence(CString&s);
 CString ChangeExt(CString oldName,CString newExt);
 void CutSentence(CString FileName);
 void OnSentenceInFiles();
+CString SegmentHzStrMM(CString s1);
+CString SegmentSentenceMM(CString s1);
+void SegmentAFileMM(CString FileName);
+
 /////////////////////////////////////////////////////////////////////////////
 // CFileAttributes dialog
 

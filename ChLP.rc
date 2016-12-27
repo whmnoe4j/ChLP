@@ -181,6 +181,12 @@ BEGIN
         MENUITEM "语料属性(&D)",                ID_DATA_ATTRIBUTES
         MENUITEM "国标字符",                    ID_TEST_GB2312
     END
+    POPUP "文本切分（&S）"
+    BEGIN
+        MENUITEM "断句（&S）",                  ID_TEXT_SENTENCE
+        MENUITEM "匹配分词（&M）",              ID_MAXIMUM_MATCH
+        MENUITEM "概率分词（&P）",              ID_MAXIMUM_POSSIBLE
+    END
     POPUP "帮助(&H)"
     BEGIN
         MENUITEM "关于 ChLP(&A)...",            ID_APP_ABOUT

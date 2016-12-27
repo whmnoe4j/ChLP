@@ -28,7 +28,8 @@ ON_COMMAND(ID_FILE_LINES, OnFileLines)
 ON_COMMAND(ID_FILE_BATCH, OnFileBatch)
 ON_COMMAND(ID_STATISTICS_SINGLE, OnStatisticsSingle)
 ON_COMMAND(ID_STATISTICS_DOUBLE, OnStatisticsDouble)
-//}}AFX_MSG_MAP
+	ON_COMMAND(ID_MAXIMUM_MATCH, OnMaximumMatch)
+	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -252,4 +253,10 @@ void CChLPDoc::OnStatisticsDouble()
 	int n=ProcessFiles("txt","*.txt",HZPairInFile);
 	if(n>0)
 		ADD_HANZI=TRUE;
+}
+
+void CChLPDoc::OnMaximumMatch() 
+{
+	// TODO: Add your command handler code here
+	ProcessFiles("sen","*.sen",SegmentAFileMM);
 }

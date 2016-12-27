@@ -6,6 +6,8 @@
 #include "FileAttributes.h"
 #include "sortedpairs.h"
 #include "hzpair.h"
+#include "dictionary.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -15,6 +17,9 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 
 int HZFreq[HZ_NUM];
+BOOL ADD_HANZI=FALSE;
+CSortedPairs hzPairs;
+CDictionary Dict;
 // CFileAttributes dialog
 
 
@@ -249,8 +254,7 @@ void hzInFile(CString FileName)
 	fclose(in);
 	return;
 }
-BOOL ADD_HANZI=FALSE;
-CSortedPairs hzPairs;
+
 void HZPairInFile(CString FileName)
 {
 	FILE *in;
@@ -459,4 +463,74 @@ void CutSentence(CString FileName)
 void OnSentenceInFiles()
 {
 	ProcessFiles("*","*.*",CutSentence);
+}
+
+CString SegmentHzStrMM(CString s1)
+{
+	CString s2="";
+	while(!s1.IsEmpty()){
+		int len=s1.GetLength();
+		if(len>MaxWordLength)len=MaxWordLength;
+		CString w=s1.Left(len);
+		while(len>2&&Dict.GetFreq(w)==-1){
+			len-=2;w=w.Left(len);
+		}
+		s2+=w+Separator;
+		s1=s1.Mid(w.GetLength());
+	}
+	return s2;
+}
+
+CString SegmentSentenceMM(CString s1)
+{
+	CString s2="";
+	int i;
+	while(!s1.IsEmpty()){
+		unsigned char ch=(unsigned char)s1[0];
+		if(ch<128){
+			i=1;
+			while(i<s1.GetLength()&&(unsigned char)s1[i]<128)i++;
+			s2+=s1.Left(i)+Separator;
+			s1=s1.Mid(i);
+			continue;
+		}
+		else if(ch<176){
+			s2+=s1.Left(2)+Separator;
+			s1=s1.Mid(2);
+			continue;
+		}
+		i=2;
+		while((unsigned char)s1[i]>=176)i+=2;
+		s2+=SegmentHzStrMM(s1.Left(i));
+		s1=s1.Mid(i);
+	}
+	return s2;
+}
+
+void SegmentAFileMM(CString FileName)
+{
+	FILE*in,*out;
+	in=fopen((const char*)FileName,"rt");
+	if(in==NULL){
+		AfxMessageBox("无法打开文件");
+		return;
+	}
+	FileName=ChangeExt(FileName,"cut");
+	out=fopen((const char*)FileName,"wt");
+	if(out==NULL){
+		AfxMessageBox("无法创建文件");
+		fclose(in);
+		return;
+	}
+	CStdioFile inFile(in),outFile(out);
+
+	char s[2048];
+	CString line;
+	while(inFile.ReadString(s,2048));{
+		line=s;
+		line=SegmentSentenceMM(line);
+		outFile.WriteString(line);
+	}
+	inFile.Close();
+	outFile.Close();
 }

@@ -52,6 +52,7 @@ protected:
 	afx_msg void OnFileBatch();
 	afx_msg void OnStatisticsSingle();
 	afx_msg void OnStatisticsDouble();
+	afx_msg void OnMaximumMatch();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

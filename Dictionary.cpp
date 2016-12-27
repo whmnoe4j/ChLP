@@ -20,9 +20,11 @@ static char THIS_FILE[]=__FILE__;
 CDictionary::CDictionary()
 {
 	pDatabase=new CDaoDatabase;
-	CFileDialog inDlg(true);
-	if(inDlg.DoModal()==IDOK){
-		pDatabase->Open(inDlg.GetFileName());
+	pDatabase->Open("mydict.mdb");
+	//CFileDialog inDlg(true);
+	//if(inDlg.DoModal()==IDOK)
+	//{
+		//pDatabase->Open(inDlg.GetFileName());
 		pWordsDef=new CDaoTableDef(pDatabase);
 		pWordsDef->Open("words");
 		pWords=new CDaoRecordset(pDatabase);
@@ -32,7 +34,7 @@ CDictionary::CDictionary()
 		pTagsDef->Open("poss");
 		pTags=new CDaoRecordset(pDatabase);
 		pTags->Open(pTagsDef);
-	}
+	//}
 }
 
 CDictionary::~CDictionary()
