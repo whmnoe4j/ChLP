@@ -24,6 +24,10 @@ BOOL ADD_HANZI=FALSE;
 CSortedPairs hzPairs;
 CDictionary Dict;
 struct Candidate Candidates[100];
+NameZi namezis[HZ_NUM];
+const int SurNameSize=174000;
+const int GivenNameSize=320000;
+
 // CFileAttributes dialog
 
 
@@ -625,9 +629,49 @@ CString SegmentSentenceMP(CString s1)
 void SegmentAFileMP(CString FileName)
 {
 }
+double sFee(CString z)
+{
+	int wFreq=Dict.GetFreq(z);
+	if(wFreq==-1)
+		wFreq=0;
+	double wFee=-log((double)(wFreq+1)/Corpus_Size);
+	int id=HZ_ID((unsigned char)z[0],(unsigned char)z[1]);
+	if(id>=0&&id<HZ_NUM&&namezis[id].sName>0)
+		return -log((double)(namezis[id].sName+1)/SurNameSize)-wFee;
+	else
+		return 20.0;
+}
+double gFee(CString z)
+{
+	int wFreq=Dict.GetFreq(z);
+	if(wFreq==-1)
+		wFreq=0;
+	double wFee=-log((double)(wFreq+1)/Corpus_Size);
+	int id=HZ_ID((unsigned char)z[0],(unsigned char)z[1]);
+	if(id>=0&&id<HZ_NUM){
+		if(namezis[id].gName>0)
+			return -log((double)(namezis[id].gName+1)/GivenNameSize)-wFee;
+		else
+			return -log(1/GivenNameSize)-wFee;
+	}
+	else
+		return 20.0;
+}
 double sgFee(CString sg)
 {
 	double fee=Dict.GetFee(sg,TRUE);
+	if(fee<20.0)
+		return fee;
+	if(sg.GetLength()==4){
+		fee=Dict.GetFee(sg,FALSE);
+		if(fee<20.0)
+			return fee;
+	}
+	fee=sFee(sg.Left(2))+gFee(sg.Mid(2,2));
+	if(sg.GetLength()==4)
+		fee+=-log(0.37);
+	else
+		fee+=gFee(sg.Right(2))+(-log(0.63));
 	return fee;
 }
 CString CheckStr(CString s1)

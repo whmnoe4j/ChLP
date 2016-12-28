@@ -12,6 +12,10 @@
 class CDictionary  
 {
 public:
+	BOOL Insert(CString sName,CString gName,double f);
+	double GetFee(CString name,BOOL full);
+	CDaoTableDef* pNamesDef;
+	CDaoRecordset* pNames;
 	long Insert(CString w,CString t,long freq=1);
 	long Insert(CString w,long freq=1);
 	long GetFreq(CString w,CObArray&a);

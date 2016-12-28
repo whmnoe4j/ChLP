@@ -35,6 +35,8 @@ CDictionary::CDictionary()
 		pTags=new CDaoRecordset(pDatabase);
 		pTags->Open(pTagsDef);
 	//}
+		pNames=new CDaoRecordset(pDatabase);
+		pNamesDef=new CDaoTableDef(pDatabase);
 }
 
 CDictionary::~CDictionary()
@@ -53,6 +55,12 @@ CDictionary::~CDictionary()
 	}
 	if(pDatabase){
 		pDatabase->Close();delete pDatabase;
+	}
+	if(pNames){
+		pNames->Close();delete pNames;
+	}
+	if(pNamesDef){
+		pNamesDef->Close();delete pNamesDef;
 	}
 }
 
@@ -184,4 +192,18 @@ long CDictionary::Insert(CString w, CString t, long freq)
 		pTags->Update();
 		return recn;
 	}
+}
+
+double CDictionary::GetFee(CString name, BOOL full)
+{
+	if(full){
+		return 20.0;
+	}
+	else
+		return 20.0;
+}
+
+BOOL CDictionary::Insert(CString sName, CString gName, double f)
+{
+	
 }
