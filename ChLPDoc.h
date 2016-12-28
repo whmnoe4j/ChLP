@@ -53,6 +53,8 @@ protected:
 	afx_msg void OnStatisticsSingle();
 	afx_msg void OnStatisticsDouble();
 	afx_msg void OnMaximumMatch();
+	afx_msg void OnMaximumPossible();
+	afx_msg void OnTextName();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

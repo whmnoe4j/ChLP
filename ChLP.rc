@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Chinese (中国) resources
+// Chinese (P.R.C.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
 #ifdef _WIN32
@@ -186,6 +186,7 @@ BEGIN
         MENUITEM "断句（&S）",                  ID_TEXT_SENTENCE
         MENUITEM "匹配分词（&M）",              ID_MAXIMUM_MATCH
         MENUITEM "概率分词（&P）",              ID_MAXIMUM_POSSIBLE
+        MENUITEM "姓名识别（&N）",              ID_TEXT_NAME
     END
     POPUP "帮助(&H)"
     BEGIN
@@ -478,7 +479,7 @@ BEGIN
     AFX_IDS_PREVIEW_CLOSE   "关闭打印预览模式\n取消预阅"
 END
 
-#endif    // Chinese (中国) resources
+#endif    // Chinese (P.R.C.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

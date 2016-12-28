@@ -16,6 +16,12 @@
 #define MaxWordLength 8
 #define Separator " "
 
+struct Candidate{
+	long offset,length;
+	long goodPrev;
+	float fee,sumFee;
+};
+
 void LoadHZFreq();
 void StoreHZFreq();
 void HZPairInFile(CString FileName);
@@ -28,6 +34,13 @@ void OnSentenceInFiles();
 CString SegmentHzStrMM(CString s1);
 CString SegmentSentenceMM(CString s1);
 void SegmentAFileMM(CString FileName);
+
+CString SegmentHzStrMP(CString s1);
+CString SegmentSentenceMP(CString s1);
+long getTmpWords(CString&s);
+void getPrev(long i);
+void SegmentAFileMP(CString FileName);
+CString CheckStr(CString s1);
 
 /////////////////////////////////////////////////////////////////////////////
 // CFileAttributes dialog

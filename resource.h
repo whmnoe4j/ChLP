@@ -30,6 +30,7 @@
 #define ID_TEXT_SENTENCE                32782
 #define ID_MAXIMUM_POSSIBLE             32783
 #define ID_MAXIMUM_MATCH                32784
+#define ID_TEXT_NAME                    32785
 
 // Next default values for new objects
 // 
@@ -37,7 +38,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
 #define _APS_NEXT_RESOURCE_VALUE        132
-#define _APS_NEXT_COMMAND_VALUE         32785
+#define _APS_NEXT_COMMAND_VALUE         32786
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

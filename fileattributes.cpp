@@ -7,6 +7,9 @@
 #include "sortedpairs.h"
 #include "hzpair.h"
 #include "dictionary.h"
+#include <math.h>
+
+#define Corpus_Size 200000
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -20,6 +23,7 @@ int HZFreq[HZ_NUM];
 BOOL ADD_HANZI=FALSE;
 CSortedPairs hzPairs;
 CDictionary Dict;
+struct Candidate Candidates[100];
 // CFileAttributes dialog
 
 
@@ -533,4 +537,98 @@ void SegmentAFileMM(CString FileName)
 	}
 	inFile.Close();
 	outFile.Close();
+}
+
+
+CString SegmentHzStrMP(CString s1)
+{
+	int len=s1.GetLength();
+	long n=getTmpWords(s1);
+	long minID=-1;
+	long i;
+	for(i=0;i<n;i++){
+		getPrev(i);
+		if(Candidates[i].offset+Candidates[i].length==len){
+			if(minID==-1||Candidates[i].sumFee<Candidates[minID].sumFee)minID=i;
+		}
+	}
+	CString s2="";
+	CString tmp="";
+	for(i=minID;i>=0;i=Candidates[i].goodPrev){
+		CString w=s1.Mid(Candidates[i].offset,Candidates[i].length);
+		if(w.GetLength()==2)
+			tmp=w+tmp;
+		else{
+			if(tmp.GetLength()>0){
+				//s2=s1.Mid(Candidates[i].offset,Candidates[i].length)+Separator+s2;
+				if(tmp.GetLength()==2)
+					s2=tmp+Separator+s2;
+				else
+					s2=CheckStr(tmp)+Separator+s2;
+				tmp="";
+			}
+			s2=w+Separator+s2;
+		}
+	}
+	if(tmp.GetLength()>0){
+		if(tmp.GetLength()==2)
+			s2=tmp+Separator+s2;
+		else
+			s2=CheckStr(tmp)+Separator+s2;
+		tmp="";
+	}
+	return s2;
+}
+long getTmpWords(CString&s)
+{
+	long i=0,j,len,freq,n=s.GetLength();
+	CString w;
+	for(j=0;j<n;j+=2){
+		for(len=2;len<=MaxWordLength;len+=2){
+			w=s.Mid(j,len);
+			freq=Dict.GetFreq(w);
+			if(len>2&&freq==-1)continue;
+			if(freq==-1)freq=0;
+			Candidates[i].offset=j;
+			Candidates[i].length=len;
+			Candidates[i].fee=-log((double)(freq+1)/Corpus_Size);
+			Candidates[i].sumFee=0.0F;
+			i++;
+		}
+	}
+	return i;
+}
+
+void getPrev(long i)
+{
+	if(Candidates[i].offset==0){
+		Candidates[i].goodPrev=-1;
+		Candidates[i].sumFee=Candidates[i].fee;
+		return;
+	}
+	long j,minID=-1;
+	for(j=i-1;j>=0;j--)
+		if(Candidates[j].offset+Candidates[j].length==Candidates[i].offset)
+			break;
+		for(;Candidates[j].offset+Candidates[j].length==Candidates[i].offset;j--)
+			if(minID==-1||Candidates[j].sumFee<Candidates[minID].sumFee)
+				minID=j;
+			Candidates[i].goodPrev=minID;
+			Candidates[i].sumFee=Candidates[i].fee+Candidates[minID].sumFee;
+			return;
+}
+CString SegmentSentenceMP(CString s1)
+{
+	CString s2;
+	return s2;
+}
+void SegmentAFileMP(CString FileName)
+{
+}
+CString CheckStr(CString s1)
+{
+	CObArray maybeNames;
+	//CMaybeName*
+	CString s2;
+	return s2;
 }

@@ -29,6 +29,8 @@ ON_COMMAND(ID_FILE_BATCH, OnFileBatch)
 ON_COMMAND(ID_STATISTICS_SINGLE, OnStatisticsSingle)
 ON_COMMAND(ID_STATISTICS_DOUBLE, OnStatisticsDouble)
 	ON_COMMAND(ID_MAXIMUM_MATCH, OnMaximumMatch)
+	ON_COMMAND(ID_MAXIMUM_POSSIBLE, OnMaximumPossible)
+	ON_COMMAND(ID_TEXT_NAME, OnTextName)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -259,4 +261,16 @@ void CChLPDoc::OnMaximumMatch()
 {
 	// TODO: Add your command handler code here
 	ProcessFiles("sen","*.sen",SegmentAFileMM);
+}
+
+void CChLPDoc::OnMaximumPossible() 
+{
+	// TODO: Add your command handler code here
+	ProcessFiles("sen","*.sen",SegmentAFileMP);
+}
+
+void CChLPDoc::OnTextName() 
+{
+	// TODO: Add your command handler code here
+	
 }

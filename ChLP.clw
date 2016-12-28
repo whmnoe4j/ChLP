@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CAboutDlg
+LastClass=CChLPDoc
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "chlp.h"
@@ -25,11 +25,11 @@ Class13=CMyDoc
 Class14=CMyView
 
 ResourceCount=5
-Resource1=IDD_ABOUTBOX
-Resource2=IDD_GET_DATA
-Resource3=IDD_FILE_ATTRIBUTES
+Resource1=IDD_FILE_ATTRIBUTES
+Resource2=IDD_ABOUTBOX
+Resource3=IDR_CHLPTYPE
 Resource4=IDR_MAINFRAME
-Resource5=IDR_CHLPTYPE
+Resource5=IDD_GET_DATA
 
 [CLS:CChildFrame]
 Type=0
@@ -48,13 +48,16 @@ Type=0
 BaseClass=CDialog
 HeaderFile=ChLP.cpp
 ImplementationFile=ChLP.cpp
-LastObject=CAboutDlg
+LastObject=ID_TEXT_NAME
 
 [CLS:CChLPDoc]
 Type=0
 BaseClass=CDocument
 HeaderFile=ChLPDoc.h
 ImplementationFile=ChLPDoc.cpp
+Filter=N
+VirtualFilter=DC
+LastObject=ID_MAXIMUM_POSSIBLE
 
 [CLS:CChLPView]
 Type=0
@@ -201,8 +204,9 @@ Command30=ID_TEST_GB2312
 Command31=ID_TEXT_SENTENCE
 Command32=ID_MAXIMUM_MATCH
 Command33=ID_MAXIMUM_POSSIBLE
-Command34=ID_APP_ABOUT
-CommandCount=34
+Command34=ID_TEXT_NAME
+Command35=ID_APP_ABOUT
+CommandCount=35
 
 [TB:IDR_MAINFRAME]
 Type=1
