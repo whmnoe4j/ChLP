@@ -25,11 +25,11 @@ Class13=CMyDoc
 Class14=CMyView
 
 ResourceCount=5
-Resource1=IDD_FILE_ATTRIBUTES
+Resource1=IDD_GET_DATA
 Resource2=IDD_ABOUTBOX
-Resource3=IDR_CHLPTYPE
-Resource4=IDR_MAINFRAME
-Resource5=IDD_GET_DATA
+Resource3=IDR_MAINFRAME
+Resource4=IDD_FILE_ATTRIBUTES
+Resource5=IDR_CHLPTYPE
 
 [CLS:CChildFrame]
 Type=0

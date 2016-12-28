@@ -625,10 +625,73 @@ CString SegmentSentenceMP(CString s1)
 void SegmentAFileMP(CString FileName)
 {
 }
+double sgFee(CString sg)
+{
+	double fee=Dict.GetFee(sg,TRUE);
+	return fee;
+}
 CString CheckStr(CString s1)
 {
 	CObArray maybeNames;
-	//CMaybeName*
+	CMaybeName*p,*p1,*p2;
+	int i,j,len;
+	for(i=0;i<s1.GetLength();i+=2){
+		for(len=4;len<=6&&i+len<=s1.GetLength();len+=2){
+			double fee=sgFee(s1.Mid(i,len));
+			if(len==4&&fee>=Max2Fee||len>=6&&fee>=Max3Fee)continue;
+			p=new CMaybeName(i,len,fee);
+			maybeNames.Add(p);
+		}
+	}
+	BOOL iDeleted=FALSE;
+	for(i=0;i<maybeNames.GetSize();){
+		for(j=i+1;j<=i+2&&j<maybeNames.GetSize();){
+			p1=(CMaybeName*)maybeNames[i];
+			p2=(CMaybeName*)maybeNames[j];
+			if(isHomoPair(p1,p2)){
+				if(p1->fee>p2->fee){
+					maybeNames.RemoveAt(i);
+					iDeleted=TRUE;
+					break;
+				}
+				else maybeNames.RemoveAt(j);
+			}
+			else if(isCrossPair(p1,p2)){
+				if(p1->fee<=p2->fee)
+					maybeNames.RemoveAt(j);
+				else{
+					maybeNames.RemoveAt(i);
+					iDeleted=TRUE;
+					break;
+				}
+				else j++;
+			}
+			if(!iDeleted)
+				i++;
+			else
+				iDeleted=FALSE;
+		}
+		//以下生成新的词串
 	CString s2;
+	if(maybeNames.GetSize()==0){
+		for(i=0;i<s1.GetLength();i+=2)
+			s2+=s1.Mid(i,2)+Separator;
+		return s2;
+	}
+	for(i=0;i<maybeNames.GetSize();i++){
+		if(i==0)
+			j=0;
+		else
+			j=p->offset+p->length;
+		p=(CMaybeName*)maybeName[i];
+		for(;j<p->offset;j+=2)
+			s2+=s1.Mid(j,2)+Separator;
+		CString w=s1.Mid(p->offset,p->length);
+		s2+=w+Separator;
+		CString sName=w.Left(2),gName=w.Mid(2);
+		Dict.Insert(sName,gName,p->fee);
+	}
+	for(j=p->offset+p->length;j<s1.GetLength();j+=2)
+		s2+=s1.Mid(j,2)+Separator;
 	return s2;
 }
