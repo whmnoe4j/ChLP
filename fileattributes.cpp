@@ -674,6 +674,22 @@ double sgFee(CString sg)
 		fee+=gFee(sg.Right(2))+(-log(0.63));
 	return fee;
 }
+BOOL isHomoPair(CMaybeName*p1,CMaybeName*p2)
+{
+	if(p1->offset==p2->offset)
+		return TRUE;
+	else
+		return FALSE;
+}
+BOOL isCrossPair(CMaybeName*p1,CMaybeName*p2)
+{
+	if(p1->offset==p2->offset
+		||p1->offset+p1->length<=p2->offset
+		||p2->offset+p2->length<=p1->offset)
+		return FALSE;
+	else
+		return TRUE;
+}
 CString CheckStr(CString s1)
 {
 	CObArray maybeNames;
@@ -708,14 +724,15 @@ CString CheckStr(CString s1)
 					iDeleted=TRUE;
 					break;
 				}
-				else j++;
 			}
-			if(!iDeleted)
-				i++;
-			else
-				iDeleted=FALSE;
+			else j++;
 		}
-		//以下生成新的词串
+		if(!iDeleted)
+			i++;
+		else
+			iDeleted=FALSE;
+	}
+	//以下生成新的词串
 	CString s2;
 	if(maybeNames.GetSize()==0){
 		for(i=0;i<s1.GetLength();i+=2)
@@ -727,7 +744,7 @@ CString CheckStr(CString s1)
 			j=0;
 		else
 			j=p->offset+p->length;
-		p=(CMaybeName*)maybeName[i];
+		p=(CMaybeName*)maybeNames[i];
 		for(;j<p->offset;j+=2)
 			s2+=s1.Mid(j,2)+Separator;
 		CString w=s1.Mid(p->offset,p->length);

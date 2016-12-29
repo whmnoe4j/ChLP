@@ -15,6 +15,8 @@
 #define c_puncture2 "¡± ¡¯ £©"
 #define MaxWordLength 8
 #define Separator " "
+#define Max2Fee   -2.14
+#define Max3Fee   -0.80
 
 struct Candidate{
 	long offset,length;

@@ -205,5 +205,16 @@ double CDictionary::GetFee(CString name, BOOL full)
 
 BOOL CDictionary::Insert(CString sName, CString gName, double f)
 {
-	
+	// 插入一个中文姓名
+	pNames->SetCurrentIndex("name");
+	COleVariant kw1(sName, VT_BSTRT), kw2(gName, VT_BSTRT);
+	if(pNames->Seek("=", &kw1, &kw2)) return FALSE;
+	// 该姓名已经在表中，不必插入
+	pNames->AddNew( ); 
+	COleVariant kf(f);
+	pNames->SetFieldValue("sname", kw1);
+	pNames->SetFieldValue("gname", kw2);
+	pNames->SetFieldValue("fee", kf);
+	pNames->Update( ); // 将该姓名加到姓名表中去
+	return TRUE;
 }
