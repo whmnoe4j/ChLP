@@ -70,10 +70,10 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CFileAttributes message handlers
 
-BOOL CFileAttributes::OnInitDialog() 
+BOOL CFileAttributes::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-	
+
 	// TODO: Add extra initialization here
 	m_SourceCtrl.SetWindowText("语文课本");
 	m_SpinYear.SetRange(1949,2050);
@@ -81,7 +81,7 @@ BOOL CFileAttributes::OnInitDialog()
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-void CFileAttributes::OnOk() 
+void CFileAttributes::OnOk()
 {
 	// TODO: Add your control notification handler code here
 	UpdateData(TRUE);
@@ -139,10 +139,10 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CGetDataDlg message handlers
 
-BOOL CGetDataDlg::OnInitDialog() 
+BOOL CGetDataDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-	
+
 	// TODO: Add extra initialization here
 	SetWindowText(PromptStr);
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -543,7 +543,6 @@ void SegmentAFileMM(CString FileName)
 	outFile.Close();
 }
 
-
 CString SegmentHzStrMP(CString s1)
 {
 	int len=s1.GetLength();
@@ -623,11 +622,48 @@ void getPrev(long i)
 }
 CString SegmentSentenceMP(CString s1)
 {
-	CString s2;
-	return s2;
+  CString s2=""; // 输出串
+  int i;
+  while(!s1.IsEmpty( )) {
+		unsigned char ch=(unsigned char)s1[0];
+		if(ch<128) {  // 西文字符
+  	  i=1;
+		  while(i<s1.GetLength() && (unsigned char)s1[i]<128) i++;
+		  s2+=s1.Left(i)+Separator;
+		  s1=s1.Mid(i);
+		  continue;
+		}
+		else if(ch<176) {	// 中文标点等字符
+		  s2+=s1.Left(2)+Separator;
+  	  s1=s1.Mid(2);
+		  continue;
+		}
+		// 以下处理汉字串
+		i=2;
+		while((unsigned char)s1[i]>=176) i+=2;
+		s2+=SegmentHzStrMP(s1.Left(i));  // 调用最大概率法分词函数
+		s1=s1.Mid(i);
+  }
+  return s2;
 }
 void SegmentAFileMP(CString FileName)
 {
+    FILE *in, *out;
+	in=fopen((const char *)FileName, "rt");
+	if(in==NULL) { AfxMessageBox("无法打开文件");	return; }
+	FileName = ChangeExt(FileName, "cut");
+	out=fopen((const char *)FileName, "wt");
+	if(out==NULL) { AfxMessageBox("无法创建文件");	fclose(in);	return; }
+	CStdioFile inFile(in), outFile(out);
+
+	char s[2048];
+	CString line;
+	while(inFile.ReadString(s, 2048)) {	// 循环读入每一行
+		line=s;
+		line=SegmentSentenceMP(line);
+		outFile.WriteString(line);
+	}
+	inFile.Close( ); outFile.Close( );
 }
 double sFee(CString z)
 {

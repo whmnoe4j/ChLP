@@ -95,7 +95,7 @@ void CChLPDoc::OnFileAddLineNumber()
 	CFileDialog fileDlg(true);
 	if(fileDlg.DoModal()==IDOK){
 		in=fopen(fileDlg.GetFileName(),"rt");
-		if(in==(FILE*)0xcccccccc){
+		if(in==NULL){
 			AfxMessageBox("未能打开文件");
 			return;
 		}
