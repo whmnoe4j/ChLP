@@ -21,18 +21,11 @@
 struct Candidate{
 	long offset,length;
 	long goodPrev;
-	float fee,sumFee;
+	double fee,sumFee;
 };
 struct NameZi{
 	int sName,gName;
 };
-class CMaybeName:public CObject{
-public:
-	long offset,length;
-	double fee;
-	CMaybeName(long off,long len,double f){offset=off;length=len;fee=f;}
-};
-
 void LoadHZFreq();
 void StoreHZFreq();
 void HZPairInFile(CString FileName);

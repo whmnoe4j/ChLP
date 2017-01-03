@@ -8,6 +8,7 @@
 #include "hzpair.h"
 #include "dictionary.h"
 #include <math.h>
+#include "MaybeName.h"
 
 #define Corpus_Size 200000
 

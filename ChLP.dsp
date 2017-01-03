@@ -126,6 +126,10 @@ SOURCE=.\MainFrm.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\MaybeName.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\SortedPairs.cpp
 # End Source File
 # Begin Source File
@@ -172,6 +176,10 @@ SOURCE=.\HZPair.h
 # Begin Source File
 
 SOURCE=.\MainFrm.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MaybeName.h
 # End Source File
 # Begin Source File
 

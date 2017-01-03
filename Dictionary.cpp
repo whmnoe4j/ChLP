@@ -35,8 +35,8 @@ CDictionary::CDictionary()
 		pTags=new CDaoRecordset(pDatabase);
 		pTags->Open(pTagsDef);
 	//}
-		pNames=new CDaoRecordset(pDatabase);
-		pNamesDef=new CDaoTableDef(pDatabase);
+// 		pNames=new CDaoRecordset(pDatabase);
+// 		pNamesDef=new CDaoTableDef(pDatabase);
 }
 
 CDictionary::~CDictionary()
@@ -56,12 +56,12 @@ CDictionary::~CDictionary()
 	if(pDatabase){
 		pDatabase->Close();delete pDatabase;
 	}
-	if(pNames){
-		pNames->Close();delete pNames;
-	}
-	if(pNamesDef){
-		pNamesDef->Close();delete pNamesDef;
-	}
+// 	if(pNames){
+// 		pNames->Close();delete pNames;
+// 	}
+// 	if(pNamesDef){
+// 		pNamesDef->Close();delete pNamesDef;
+// 	}
 }
 
 long CDictionary::GetWordID(CString w)
