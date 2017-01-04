@@ -20,23 +20,27 @@ static char THIS_FILE[]=__FILE__;
 CDictionary::CDictionary()
 {
 	pDatabase=new CDaoDatabase;
-	pDatabase->Open("mydict.mdb");
+	pDatabase->Open("mydict.mdb"); // 打开数据库
+	// 用数据库文件名作为参数
+	pWordsDef=new CDaoTableDef(pDatabase);
+	pWordsDef->Open("words"); // 打开词表结构，用词表名作为参数
+	pWords=new CDaoRecordset(pDatabase);  
+	pWords->Open(pWordsDef); // 打开词表记录集，用词表结构指针作为参数
+	
+	pTagsDef=new CDaoTableDef(pDatabase);
+	pTagsDef->Open("poss");  // 打开词性表结构，用词性表名作为参数
+	pTags=new CDaoRecordset(pDatabase);
+	pTags->Open(pTagsDef);  // 打开词性表记录集，用词性表结构指针作为参数
+	
+	pNamesDef=new CDaoTableDef(pDatabase);
+	pNamesDef->Open("chineseNames");  // 打开人名表结构，用人名表名作为参数
+	pNames=new CDaoRecordset(pDatabase);
+	pNames->Open(pNamesDef);  // 打开人名表记录集，用人名表结构指针作为参数
 	//CFileDialog inDlg(true);
 	//if(inDlg.DoModal()==IDOK)
 	//{
 		//pDatabase->Open(inDlg.GetFileName());
-		pWordsDef=new CDaoTableDef(pDatabase);
-		pWordsDef->Open("words");
-		pWords=new CDaoRecordset(pDatabase);
-		pWords->Open(pWordsDef);
-		
-		pTagsDef=new CDaoTableDef(pDatabase);
-		pTagsDef->Open("poss");
-		pTags=new CDaoRecordset(pDatabase);
-		pTags->Open(pTagsDef);
 	//}
-// 		pNames=new CDaoRecordset(pDatabase);
-// 		pNamesDef=new CDaoTableDef(pDatabase);
 }
 
 CDictionary::~CDictionary()
@@ -47,21 +51,21 @@ CDictionary::~CDictionary()
 	if(pTags){
 		pTags->Close();delete pTags;
 	}
+	if(pNames){
+		pNames->Close();delete pNames;
+	}
 	if(pWordsDef){
 		pWordsDef->Close();delete pWordsDef;
 	}
 	if(pTagsDef){
 		pTagsDef->Close();delete pTagsDef;
 	}
+	if(pNamesDef){
+		pNamesDef->Close();delete pNamesDef;
+	}
 	if(pDatabase){
 		pDatabase->Close();delete pDatabase;
 	}
-// 	if(pNames){
-// 		pNames->Close();delete pNames;
-// 	}
-// 	if(pNamesDef){
-// 		pNamesDef->Close();delete pNamesDef;
-// 	}
 }
 
 long CDictionary::GetWordID(CString w)
